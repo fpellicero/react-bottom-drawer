@@ -1,0 +1,48 @@
+{
+  "name": "react-bottom-drawer",
+  "version": "0.0.0",
+  "description": "A React Component to build friendly dialogs that slide from the bottom",
+  "main": "dist",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "test",
+    "prebuild": "rm -rf dist",
+    "build": "tsc",
+    "prepublish": "yarn build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/fpellicero/react-bottom-drawer.git"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "modal",
+    "dialog"
+  ],
+  "author": "Francesc Pellicero <fpellicero@gmail.com> (https://fpellicero.github.io)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fpellicero/react-bottom-drawer/issues"
+  },
+  "homepage": "https://github.com/fpellicero/react-bottom-drawer#readme",
+  "devDependencies": {
+    "@types/lodash.debounce": "^4.0.6",
+    "@types/react": "^16.9.32",
+    "@types/react-dom": "^16.9.6",
+    "@types/react-swipeable": "^5.2.0",
+    "@types/react-transition-group": "^4.2.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "lodash.debounce": "^4.0.8",
+    "parcel-bundler": "^1.12.4",
+    "react-swipeable": "^5.5.1",
+    "react-transition-group": "^4.3.0"
+  },
+  "files": [
+    "dist"
+  ]
+}
