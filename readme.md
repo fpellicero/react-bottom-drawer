@@ -22,7 +22,7 @@ function DemoDrawer() {
   });
 
   return (
-    <Drawer 
+    <Drawer
       isVisible={isVisible}
       onClose={onClose}
     >
@@ -34,12 +34,14 @@ function DemoDrawer() {
 
 ## Props
 
-| Prop      | Type      | Required? | Default Value | Description |
-| ---       | ---| ---| ---| --- |
-| isVisible | `boolean` | Required | - | Shows or hides the modal |
-| onClose | `function` | Required | - | Invoked when the drawer should be close. You shoud be setting `isVisible` to false in this callback |
-| mountOnEnter | `boolean` | Optional | `true` | If true, the children won't be mounted until `isVisible` is true. If false, we will mount the children, and hide them via CSS. |
-| unmountOnExit | `boolean` | Optional | `true` | If true, we will unmount the children once `isVisible` goes back to `false`. If false, we won't unmount the children after mounting them. |
+| Prop           | Type       | Required? | Default Value | Description                                                                                                                               |
+| -------------- | ---------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| isVisible      | `boolean`  | Required  | -             | Shows or hides the modal                                                                                                                  |
+| onClose        | `function` | Required  | -             | Invoked when the drawer should be close. You shoud be setting `isVisible` to false in this callback                                       |
+| mountOnEnter   | `boolean`  | Optional  | `true`        | If true, the children won't be mounted until `isVisible` is true. If false, we will mount the children, and hide them via CSS.            |
+| unmountOnExit  | `boolean`  | Optional  | `true`        | If true, we will unmount the children once `isVisible` goes back to `false`. If false, we won't unmount the children after mounting them. |
+| duration       | `number`   | Optional  | `250`         | Duration of the enter / exit animation in ms                                                                                              |
+| hideScrollbars | `boolean`  | Optional  | `false`       | If true, scrollbars won't appear even if content is scrollable                                                                            |
 
 ## Examples
 
