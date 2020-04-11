@@ -19,7 +19,7 @@ function DemoDrawer() {
 
   const onClose = React.useCallback(() => {
     setIsVisible(false);
-  });
+  }, []);
 
   return (
     <Drawer
