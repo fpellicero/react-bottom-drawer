@@ -4,19 +4,18 @@ import { useSwipeable } from "react-swipeable";
 import { Transition } from "react-transition-group";
 import useEscButton from "./lib/hooks/useEscButton";
 import usePreventScroll from "./lib/hooks/usePreventScroll";
-import {
-  SlideUpStyles,
-  SlideUpHandleStyles,
+import globalStylesheet, {
   BackdropStyles,
   TransitionStyles,
-  SlideUpContentWrapperStyles,
-  SlideUpHandleWrapperStyles,
+  classNames,
 } from "./lib/styles";
+import useGlobalStyles from "./lib/hooks/useGlobalStyles";
 
 interface IProps {
   isVisible: boolean;
   onClose: () => void;
   duration?: number;
+  hideScrollbars?: boolean;
   unmountOnExit?: boolean;
   mountOnEnter?: boolean;
   children: React.ReactNode;
@@ -28,7 +27,11 @@ const SlideUpTransition = ({
   onClose,
   unmountOnExit = true,
   mountOnEnter = true,
+  duration = 250,
+  hideScrollbars = false,
 }: IProps) => {
+  useGlobalStyles(globalStylesheet({duration, hideScrollbars}));
+  
   // Actions to close
   useEscButton(onClose, isVisible);
   usePreventScroll(isVisible);
@@ -37,7 +40,7 @@ const SlideUpTransition = ({
   const [currentDeltaY, setDeltaY] = React.useState(0);
   const swipeHandlers = useSwipeable({
     onSwipedDown: debounce(
-      ({ velocity, event }) => {
+      ({ velocity }) => {
         setDeltaY(0);
         if (velocity > 0.5) {
           onClose();
@@ -46,7 +49,7 @@ const SlideUpTransition = ({
       500,
       { leading: true }
     ),
-    onSwiping: ({ deltaY, event }) => {
+    onSwiping: ({ deltaY }) => {
       setDeltaY(deltaY);
     },
   });
@@ -68,24 +71,24 @@ const SlideUpTransition = ({
       <Transition
         appear={true}
         in={isVisible}
-        timeout={{ appear: 0, enter: 0, exit: 250 }}
+        timeout={{ appear: 0, enter: 0, exit: duration }}
         unmountOnExit={unmountOnExit}
         mountOnEnter={mountOnEnter}
       >
         {(state) => (
           <>
-            <div onClick={onClose} style={BackdropStyles[state]} />
+            <div onClick={onClose} className={classNames.backdrop} style={BackdropStyles[state]} />
             <div
+            className={classNames.drawer}
               style={{
-                ...SlideUpStyles,
                 ...TransitionStyles[state],
                 ...getTransforms(),
               }}
             >
-              <div {...swipeHandlers} style={SlideUpHandleWrapperStyles}>
-                <div style={{ ...SlideUpHandleStyles }} />
+              <div {...swipeHandlers} className={classNames.handleWrapper}>
+                <div className={classNames.handle} />
               </div>
-              <div style={SlideUpContentWrapperStyles}>{children}</div>
+              <div className={classNames.contentWrapper}>{children}</div>
             </div>
           </>
         )}
