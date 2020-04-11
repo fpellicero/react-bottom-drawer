@@ -4,7 +4,7 @@ import Drawer from "./index";
 
 
 function Demo() {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(true);
   
   return (
     <>
@@ -12,6 +12,8 @@ function Demo() {
       <Drawer
         isVisible={isOpen}
         onClose={() => setIsOpen(false)}
+        duration={1000}
+        hideScrollbars={true}
       >
         <h1> React Bottom Drawers! </h1>
         <p>
@@ -33,8 +35,7 @@ function Demo() {
         <p>
           Sed interdum vitae ante nec consectetur. Quisque elementum tortor erat, condimentum gravida massa commodo non. Maecenas eget ante vel purus suscipit volutpat. Nulla vulputate euismod urna sit amet tristique. Morbi rhoncus urna et erat varius, non bibendum tortor fermentum. Proin finibus ligula quis ipsum tempus laoreet. Aenean ipsum neque, mollis et tortor in, lobortis hendrerit est. In sed commodo nunc.
         </p>
-      </Drawer>
-      
+      </Drawer>      
     </>
   )
 }

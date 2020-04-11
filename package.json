@@ -8,7 +8,7 @@
     "test": "test",
     "prebuild": "rm -rf dist",
     "build": "tsc",
-    "prepublish": "yarn build"
+    "prepublishOnly": "yarn build"
   },
   "repository": {
     "type": "git",
