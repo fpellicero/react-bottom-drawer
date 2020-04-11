@@ -1,6 +1,6 @@
 {
   "name": "react-bottom-drawer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A React Component to build friendly dialogs that slide from the bottom",
   "main": "dist",
   "scripts": {
