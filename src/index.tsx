@@ -4,10 +4,9 @@ import { useSwipeable } from "react-swipeable";
 import { Transition } from "react-transition-group";
 import useEscButton from "./lib/hooks/useEscButton";
 import usePreventScroll from "./lib/hooks/usePreventScroll";
-import globalStylesheet, {
+import {
   BackdropStyles,
   TransitionStyles,
-  classNames,
 } from "./lib/styles";
 import useGlobalStyles from "./lib/hooks/useGlobalStyles";
 
@@ -30,7 +29,7 @@ const SlideUpTransition = ({
   duration = 250,
   hideScrollbars = false,
 }: IProps) => {
-  useGlobalStyles(globalStylesheet({duration, hideScrollbars}));
+  const classNames = useGlobalStyles(duration, hideScrollbars);
   
   // Actions to close
   useEscButton(onClose, isVisible);

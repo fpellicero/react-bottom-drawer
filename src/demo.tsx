@@ -12,7 +12,7 @@ function Demo() {
       <Drawer
         isVisible={isOpen}
         onClose={() => setIsOpen(false)}
-        duration={1000}
+        duration={250}
         hideScrollbars={true}
       >
         <h1> React Bottom Drawers! </h1>

@@ -1,15 +1,15 @@
 export const TransitionStyles = {
   entering: { transform: "translate3d(0, 100%, 0)" },
-  entered:  { transform: "none" },
-  exiting:  { transform: "translate3d(0, 100%, 0)" },
-  exited:  { display: "none" },
+  entered: { transform: "none" },
+  exiting: { transform: "translate3d(0, 100%, 0)" },
+  exited: { display: "none" },
 };
 
 export const BackdropStyles = {
   entering: { opacity: "0" },
-  entered:  { opacity: "1" },
-  exiting:  { opacity: "0" },
-  exited:  {  display: "none" },
+  entered: { opacity: "1" },
+  exiting: { opacity: "0" },
+  exited: { display: "none" },
 };
 
 export interface ICustomizations {
@@ -17,16 +17,20 @@ export interface ICustomizations {
   hideScrollbars: boolean;
 }
 
-const ns = "react-bottom-drawer"; 
-export const classNames = {
-  backdrop: `${ns}__backdrop`,
-  drawer: `${ns}__drawer`,
-  handleWrapper: `${ns}__handle-wrapper`,
-  handle: `${ns}__handle`,
-  contentWrapper: `${ns}__content-wrapper`
-}
+export const getClassNames = (identifier: string) => ({
+  backdrop: `${identifier}db`,
+  drawer: `${identifier}dr`,
+  handleWrapper: `${identifier}hw`,
+  handle: `${identifier}h`,
+  contentWrapper: `${identifier}cw`,
+});
 
-const globalStylesheet = ({duration, hideScrollbars}: ICustomizations) => `
+const globalStylesheet = (
+  identifier: string,
+  { duration, hideScrollbars }: ICustomizations
+) => {
+  const classNames = getClassNames(identifier);
+  return `
   .${classNames.backdrop} {
     position: fixed;
     z-index: 10;
@@ -65,19 +69,29 @@ const globalStylesheet = ({duration, hideScrollbars}: ICustomizations) => `
     max-height: calc(70vh - 25px);
     overflow-x: hidden;
     overflow-y: auto;
-    ${hideScrollbars ? `
+    ${
+      hideScrollbars
+        ? `
       scrollbar-width: none;
       -ms-overflow-style: none;
-    ` : ""   
+    `
+        : ""
     }
   }
-  ${hideScrollbars ? `
+  ${
+    hideScrollbars
+      ? `
   .${classNames.contentWrapper}::-webkit-scrollbar {
     width: 0px;
     background: transparent;
   }
-  `: ""
+  `
+      : ""
   }
     
-`.split("\n").map((l) => l.trim()).join("");
+`
+    .split("\n")
+    .map((l) => l.trim())
+    .join("");
+};
 export default globalStylesheet;
