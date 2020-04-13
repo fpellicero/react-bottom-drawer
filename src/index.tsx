@@ -33,7 +33,7 @@ const SlideUpTransition = ({
   
   // Actions to close
   useEscButton(onClose, isVisible);
-  usePreventScroll(isVisible);
+  usePreventScroll(isVisible, classNames.contentWrapper);
 
   // Swiping down interaction
   const [currentDeltaY, setDeltaY] = React.useState(0);

@@ -31,17 +31,19 @@
     "react-dom": "^16.8.0"
   },
   "devDependencies": {
+    "@types/body-scroll-lock": "^2.6.1",
     "@types/lodash.debounce": "^4.0.6",
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.6",
     "@types/react-swipeable": "^5.2.0",
     "@types/react-transition-group": "^4.2.4",
+    "parcel-bundler": "^1.12.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "typescript": "^3.8.3",
-    "parcel-bundler": "^1.12.4"
+    "typescript": "^3.8.3"
   },
   "dependencies": {
+    "body-scroll-lock": "^3.0.1",
     "lodash.debounce": "^4.0.8",
     "react-swipeable": "^5.5.1",
     "react-transition-group": "^4.3.0"

@@ -18,11 +18,11 @@ export interface ICustomizations {
 }
 
 export const getClassNames = (identifier: string) => ({
-  backdrop: `${identifier}db`,
-  drawer: `${identifier}dr`,
-  handleWrapper: `${identifier}hw`,
-  handle: `${identifier}h`,
-  contentWrapper: `${identifier}cw`,
+  backdrop: `rbd-${identifier}-db`,
+  drawer: `rbd-${identifier}-dr`,
+  handleWrapper: `rbd-${identifier}-hw`,
+  handle: `rbd-${identifier}-h`,
+  contentWrapper: `rbd-${identifier}-cw`,
 });
 
 const globalStylesheet = (
