@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel index.html",
     "test": "test",
-    "prebuild": "rm -rf dist",
+    "prebuild": "rimraf dist",
     "build": "tsc",
     "prepublishOnly": "yarn build"
   },
@@ -40,6 +40,7 @@
     "parcel-bundler": "^1.12.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "rimraf": "^3.0.2",
     "typescript": "^3.8.3"
   },
   "dependencies": {
