@@ -2,7 +2,7 @@ import React from "react";
 import globalStylesheet, { getClassNames } from "../styles";
 
 function useGlobalStyles(duration: number, hideScrollbars: boolean) {
-  const identifier = React.useMemo(() => Math.random().toString(36).substr(2), []);
+  const identifier = React.useMemo(() => 'drawer' + Math.random().toString(36).substr(2), []);
   const classNames = React.useMemo(() => getClassNames(identifier), [identifier]);
   
   React.useEffect(() => {
