@@ -30,6 +30,7 @@ const SlideUpTransition = ({
   hideScrollbars = false,
 }: IProps) => {
   const classNames = useGlobalStyles(duration, hideScrollbars);
+  const nodeRef = React.useRef(null);
   
   // Actions to close
   useEscButton(onClose, isVisible);
@@ -73,9 +74,10 @@ const SlideUpTransition = ({
         timeout={{ appear: 0, enter: 0, exit: duration }}
         unmountOnExit={unmountOnExit}
         mountOnEnter={mountOnEnter}
+        nodeRef={nodeRef}
       >
         {(state) => (
-          <>
+          <div ref={nodeRef}>
             <div onClick={onClose} className={classNames.backdrop} style={BackdropStyles[state]} />
             <div
             className={classNames.drawer}
@@ -89,7 +91,7 @@ const SlideUpTransition = ({
               </div>
               <div className={classNames.contentWrapper}>{children}</div>
             </div>
-          </>
+          </div>
         )}
       </Transition>
     </>
