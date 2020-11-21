@@ -12,23 +12,7 @@ on:
         default: 'patch'
 
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: yarn --frozen-lockfile
-      - run: yarn build
-      - uses: actions/upload-artifact@v2
-        with:
-          name: dist
-          path: dist
-
   publish-npm:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -36,9 +20,10 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - uses: actions/download-artifact@v2
-        with:
-          name: dist
+      - run: yarn --frozen-lockfile
+      - run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
       - run: yarn version --${{ github.event.inputs.versionType }}
       - run: yarn publish
         env:
