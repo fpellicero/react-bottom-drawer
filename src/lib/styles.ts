@@ -46,7 +46,6 @@ const globalStylesheet = (
     z-index: 11;
     left: 0;
     bottom: 0;
-    max-height: 70vh;
     width: 100vw;
     background: white;
     border-top-left-radius: 15px;

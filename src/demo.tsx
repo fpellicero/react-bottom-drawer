@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Drawer from "./index";
+import "./demo.css";
 
 
 function Demo() {
@@ -15,6 +16,7 @@ function Demo() {
           onClose={() => setIsOpen(false)}
           duration={250}
           hideScrollbars={true}
+          className="drawer"
         >
           <h1> React Bottom Drawers! </h1>
           <p>
