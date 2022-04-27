@@ -65,7 +65,7 @@ const globalStylesheet = (
   }
   .${classNames.contentWrapper} {
     padding: 0 10px;
-    max-height: calc(70vh - 25px);
+    max-height: calc(90vh - 25px);
     overflow-x: hidden;
     overflow-y: auto;
     ${
