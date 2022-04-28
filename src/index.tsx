@@ -18,6 +18,7 @@ interface IProps {
   hideScrollbars?: boolean;
   unmountOnExit?: boolean;
   mountOnEnter?: boolean;
+  maxHeight?: number;
   className?: string;
   backdropClassname?: string;
   children: React.ReactNode;
@@ -31,9 +32,10 @@ const SlideUpTransition = ({
   mountOnEnter = true,
   duration = 250,
   hideScrollbars = false,
+  maxHeight = 70,
   className = "",
 }: IProps) => {
-  const classNames = useGlobalStyles(duration, hideScrollbars);
+  const classNames = useGlobalStyles(duration, hideScrollbars, maxHeight);
   const nodeRef = React.useRef(null);
   
   // Actions to close

@@ -15,6 +15,7 @@ export const BackdropStyles = {
 export interface ICustomizations {
   duration: number;
   hideScrollbars: boolean;
+  maxHeight: number
 }
 
 export const getClassNames = (identifier: string) => ({
@@ -27,7 +28,7 @@ export const getClassNames = (identifier: string) => ({
 
 const globalStylesheet = (
   identifier: string,
-  { duration, hideScrollbars }: ICustomizations
+  { duration, hideScrollbars, maxHeight }: ICustomizations
 ) => {
   const classNames = getClassNames(identifier);
   return `
@@ -65,7 +66,7 @@ const globalStylesheet = (
   }
   .${classNames.contentWrapper} {
     padding: 0 10px;
-    max-height: calc(90vh - 25px);
+    max-height: calc(${maxHeight}vh - 25px);
     overflow-x: hidden;
     overflow-y: auto;
     ${

@@ -1,7 +1,7 @@
 import React from "react";
 import globalStylesheet, { getClassNames } from "../styles";
 
-function useGlobalStyles(duration: number, hideScrollbars: boolean) {
+function useGlobalStyles(duration: number, hideScrollbars: boolean, maxHeight: number) {
   const identifier = React.useMemo(() => Math.random().toString(36).substr(2), []);
   const classNames = React.useMemo(() => getClassNames(identifier), [identifier]);
   
@@ -9,7 +9,7 @@ function useGlobalStyles(duration: number, hideScrollbars: boolean) {
     if (typeof document === "undefined") {
       return;
     }
-    const styles = globalStylesheet(identifier, {duration, hideScrollbars});
+    const styles = globalStylesheet(identifier, {duration, hideScrollbars, maxHeight});
 
     const tag = document.createElement("style");
     tag.setAttribute("data-react-bottom-drawer", identifier);
